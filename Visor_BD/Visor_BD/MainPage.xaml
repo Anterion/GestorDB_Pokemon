@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="Visor_BD.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Visor_BD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" HorizontalAlignment="Center" VerticalAlignment="Center" Width="700" Height="500">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="700" Height="500">
+        <Image x:Name="Imagen_Carta" HorizontalAlignment="Center" Margin="-350,0,5,0" Width="245" Height="342" VerticalAlignment="Center" />
+        <Rectangle x:Name="Container" Fill="#FFD1E4F1" Margin="0,0,-318,0" Stroke="Black" HorizontalAlignment="Center" Width="300" VerticalAlignment="Center" Height="450"/>
+        <TextBox x:Name="NombreCar" HorizontalAlignment="Center" Height="32" Margin="0,0,-221,380" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="135" PlaceholderText="Nombre"/>
+        <Button x:Name="Aceptar" Content="Aceptar" HorizontalAlignment="Center" Height="31" Margin="326,394,0,0" VerticalAlignment="Center" Width="96" Click="Click_Aceptar"/>
+        <ComboBox x:Name="NumCarta" HorizontalAlignment="Center" Height="32" Margin="460,0,0,380" Width="94" VerticalAlignment="Center" SelectionChanged="Cambio_Carta" BorderThickness="2"/>
+        <ComboBox x:Name="NombreEdicion" HorizontalAlignment="Center" Height="32" Margin="320,0,0,304" Width="234" VerticalAlignment="Center" SelectionChanged="Cambio_Edicion"/>
+        <ComboBox x:Name="Fase" HorizontalAlignment="Center" Height="32" Margin="178,0,0,230" Width="92" VerticalAlignment="Center" FontSize="10.667">
+            <ComboBoxItem x:Name="Basico" Content="Básico"/>
+            <ComboBoxItem x:Name="Fase_1" Content="Fase 1"/>
+            <ComboBoxItem x:Name="Fase_2" Content="Fase 2"/>
+            <ComboBoxItem x:Name="EX" Content="EX"/>
+            <ComboBoxItem x:Name="Mega" Content="Mega"/>
+            <ComboBoxItem x:Name="Turbo" Content="Turbo"/>
+            <ComboBoxItem x:Name="Obeto" Content="Obeto"/>
+            <ComboBoxItem x:Name="Partidario" Content="Partidario"/>
+            <ComboBoxItem x:Name="Energia" Content="Energía"/>
+        </ComboBox>
+        <TextBox x:Name="PS" Height="32" Margin="346,0,0,230" TextWrapping="Wrap" Text="" Width="64" PlaceholderText="PS" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ComboBox x:Name="Tipo" HorizontalAlignment="Center" Height="32" Margin="487,0,0,230" Width="66" VerticalAlignment="Center">
+            <ComboBoxItem x:Name="Incolora">
+                <Image Source="Assets/TipoEnergia/Incolora.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
+            </ComboBoxItem>
+            <ComboBoxItem x:Name="Fuego">
+                <Image Source="Assets/TipoEnergia/Fuego.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
+            </ComboBoxItem>
+            <ComboBoxItem x:Name="Agua">
+                <Image Source="Assets/TipoEnergia/Agua.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
+            </ComboBoxItem>
+            <ComboBoxItem x:Name="Hoja">
+                <Image Source="Assets/TipoEnergia/Hoja.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" ></Image>
+            </ComboBoxItem>
+            <ComboBoxItem x:Name="Electrico">
+                <Image Source="Assets/TipoEnergia/Electrico.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" ></Image>
+            </ComboBoxItem>
+            <ComboBoxItem x:Name="Lucha">
+                <Image Source="Assets/TipoEnergia/Lucha.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" ></Image>
+            </ComboBoxItem>
+            <ComboBoxItem x:Name="Psiquico">
+                <Image Source="Assets/TipoEnergia/Psiquico.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" ></Image>
+            </ComboBoxItem>
+            <ComboBoxItem x:Name="Siniestro">
+                <Image Source="Assets/TipoEnergia/Siniestro.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" ></Image>
+            </ComboBoxItem>
+            <ComboBoxItem x:Name="Dragon">
+                <Image Source="Assets/TipoEnergia/Dragon.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" ></Image>
+            </ComboBoxItem>
+            <ComboBoxItem x:Name="Acero">
+                <Image Source="Assets/TipoEnergia/Acero.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" ></Image>
+            </ComboBoxItem>
+            <ComboBoxItem x:Name="Hada">
+                <Image Source="Assets/TipoEnergia/Hada.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" ></Image>
+            </ComboBoxItem>
+        </ComboBox>
+        <TextBox x:Name="Habilidad" HorizontalAlignment="Center" Height="52" Margin="320,0,0,139" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="234" PlaceholderText="Habilidad" FontSize="10.667" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="Atk1" HorizontalAlignment="Center" Margin="320,0,0,26" TextWrapping="Wrap" Text="" Width="234" PlaceholderText="Atk1" Height="52" VerticalAlignment="Center" FontSize="10.667" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="Atk2" HorizontalAlignment="Center" Height="52" Margin="320,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="234" PlaceholderText="Atk2" FontSize="10.667" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="Atk3" HorizontalAlignment="Center" Height="52" Margin="320,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="234" PlaceholderText="Atk3" FontSize="10.667" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="Debilidad" HorizontalAlignment="Center" Height="17" Margin="153,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="67" PlaceholderText="Debilidad"/>
+        <TextBox x:Name="Resistencia" HorizontalAlignment="Center" Height="32" Margin="297,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="67" PlaceholderText="Resistencia"/>
+        <TextBox x:Name="Retirada" HorizontalAlignment="Center" Height="32" Margin="463,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="90" PlaceholderText="Resistencia"/>
+    </Grid>
+
+</Page>
