@@ -240,9 +240,9 @@ namespace Visor_BD
             } else if (Tipo == Agua.Name)
             {
                 Agua.IsSelected = true;
-            } else if (Tipo == Hoja.Name)
+            } else if (Tipo == Planta.Name)
             {
-                Hoja.IsSelected = true;
+                Planta.IsSelected = true;
             } else if (Tipo == Electrico.Name)
             {
                 Electrico.IsSelected = true;
@@ -276,14 +276,133 @@ namespace Visor_BD
             if (Retirada != null) { this.Retirada.Text = Retirada;} else { this.Retirada.Text = string.Empty; }
         }
 
+        //Carga en la base de datos la información del formulario
         private void Click_Aceptar(object sender, RoutedEventArgs e)
         {
+            //Obtengo la informajcion de la carta seleccionada actualmente
+            var item = conn.Query<Cartas>("select * from Cartas where NumCarta = " + NumCarta.SelectedItem.ToString() + " And Edicion = (select Id from Edicion where Nombre = '"
+                + NombreEdicion.SelectedItem.ToString() + "');").FirstOrDefault();
 
+            var edicionact = conn.Query<Edicion>("select * from Edicion where Nombre = '"
+                + NombreEdicion.SelectedItem.ToString() + "';").FirstOrDefault();
+
+            if (item != null)
+            {
+                item.NumCarta = Int32.Parse(NumCarta.SelectedItem.ToString());
+                item.Nombre = NombreCar.Text;
+                item.Tipo = ConsultaTipo();
+                item.Fase = ConsultaFase();
+                item.PS = int.Parse(PS.Text);
+                item.Habilidad = Habilidad.Text;
+                item.Atk1 = Atk1.Text;
+                item.Atk2 = Atk2.Text;
+                item.Atk3 = Atk3.Text;
+                item.Debilidad = Debilidad.Text;
+                item.Resistencia = Resistencia.Text;
+                item.Retirada = Retirada.Text;
+                item.Edicion = edicionact.Id;
+                item.IURL = edicionact.Id + "_ES_" + NumCarta.SelectedItem.ToString() + ".png";
+                item.Tiene = 0;
+                conn.RunInTransaction(() =>
+                {
+                    conn.Update(item);
+                });
+            }
+            else
+            {
+                conn.Insert(new Cartas(){
+                    NumCarta = Int32.Parse(NumCarta.SelectedItem.ToString()),
+                    Nombre = NombreCar.Text,
+                    Tipo = ConsultaTipo(),
+                    Fase = ConsultaFase(),
+                    PS = int.Parse(PS.Text),
+                    Habilidad = Habilidad.Text,
+                    Atk1 = Atk1.Text,
+                    Atk2 = Atk2.Text,
+                    Atk3 = Atk3.Text,
+                    Debilidad = Debilidad.Text,
+                    Resistencia = Resistencia.Text,
+                    Retirada = Retirada.Text,
+                    Edicion = edicionact.Id,
+                    IURL = edicionact.Id + "_ES_" + NumCarta.SelectedItem.ToString() + ".png",
+                    Tiene = 0,
+            });
+            }
+
+        }
+
+        private string ConsultaTipo()
+        {
+            int numTipo = Tipo.SelectedIndex;
+
+            switch (numTipo)
+            {
+                case 0:
+                    return "Incolora";
+                case 1:
+                    return "Fuego";
+                case 2:
+                    return "Agua";
+                case 3:
+                    return "Planta";
+                case 4:
+                    return "Electrico";
+                case 5:
+                    return "Lucha";
+                case 6:
+                    return "Psiquico";
+                case 7:
+                    return "Siniestro";
+                case 8:
+                    return "Dragon";
+                case 9:
+                    return "Acero";
+                case 10:
+                    return "Hada";
+                default:
+                    return "Error";
+            }
+        }
+
+        private string ConsultaFase ()
+        {
+            int numFase = Fase.SelectedIndex;
+
+            switch (numFase)
+            {
+                case 0:
+                    return "Basico";
+                case 1:
+                    return "Fase_1";
+                case 2:
+                    return "Fase_2";
+                case 3:
+                    return "EX";
+                case 4:
+                    return "Mega";
+                case 5:
+                    return "Turbo";
+                case 6:
+                    return "Objeto";
+                case 7:
+                    return "Partidario";
+                case 8:
+                    return "Energia";
+                default:
+                    return "Error";
+            }
         }
 
         private void Sincronizar(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private string Codificar_Colores(string CEnergia)
+        {
+            string CodEner = "[I]";
+
+            return CodEner;
         }
     }
 }

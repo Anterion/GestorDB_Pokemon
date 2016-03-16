@@ -15,7 +15,7 @@
         <ComboBox x:Name="NumCarta" HorizontalAlignment="Center" Height="32" Margin="460,0,0,380" Width="94" VerticalAlignment="Center" SelectionChanged="Cambio_Carta" BorderThickness="2"/>
         <ComboBox x:Name="NombreEdicion" HorizontalAlignment="Center" Height="32" Margin="320,0,0,304" Width="234" VerticalAlignment="Center" SelectionChanged="Cambio_Edicion"/>
         <ComboBox x:Name="Fase" HorizontalAlignment="Center" Height="32" Margin="178,0,0,230" Width="92" VerticalAlignment="Center" FontSize="10.667">
-            <ComboBoxItem x:Name="Basico" Content="Básico"/>
+            <ComboBoxItem x:Name="Basico" Content="Básico" IsSelected="True"/>
             <ComboBoxItem x:Name="Fase_1" Content="Fase 1"/>
             <ComboBoxItem x:Name="Fase_2" Content="Fase 2"/>
             <ComboBoxItem x:Name="EX" Content="EX"/>
@@ -27,7 +27,7 @@
         </ComboBox>
         <TextBox x:Name="PS" Height="32" Margin="346,0,0,230" TextWrapping="Wrap" Text="" Width="64" PlaceholderText="PS" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <ComboBox x:Name="Tipo" HorizontalAlignment="Center" Height="32" Margin="487,0,0,230" Width="66" VerticalAlignment="Center">
-            <ComboBoxItem x:Name="Incolora">
+            <ComboBoxItem x:Name="Incolora" IsSelected="True">
                 <Image Source="Assets/TipoEnergia/Incolora.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
             </ComboBoxItem>
             <ComboBoxItem x:Name="Fuego">
@@ -36,7 +36,7 @@
             <ComboBoxItem x:Name="Agua">
                 <Image Source="Assets/TipoEnergia/Agua.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
             </ComboBoxItem>
-            <ComboBoxItem x:Name="Hoja">
+            <ComboBoxItem x:Name="Planta">
                 <Image Source="Assets/TipoEnergia/Hoja.png" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" ></Image>
             </ComboBoxItem>
             <ComboBoxItem x:Name="Electrico">
