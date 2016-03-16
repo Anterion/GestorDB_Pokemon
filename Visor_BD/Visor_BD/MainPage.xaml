@@ -11,7 +11,7 @@
         <Image x:Name="Imagen_Carta" HorizontalAlignment="Center" Margin="-350,0,5,0" Width="245" Height="342" VerticalAlignment="Center" />
         <Rectangle x:Name="Container" Fill="#FFD1E4F1" Margin="0,0,-318,0" Stroke="Black" HorizontalAlignment="Center" Width="300" VerticalAlignment="Center" Height="450"/>
         <TextBox x:Name="NombreCar" HorizontalAlignment="Center" Height="32" Margin="0,0,-221,380" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="135" PlaceholderText="Nombre"/>
-        <Button x:Name="Aceptar" Content="Aceptar" HorizontalAlignment="Center" Height="31" Margin="326,394,0,0" VerticalAlignment="Center" Width="96" Click="Click_Aceptar"/>
+        <Button x:Name="Aceptar" Content="Aceptar" HorizontalAlignment="Center" Height="31" Margin="200,394,0,0" VerticalAlignment="Center" Width="96" Click="Click_Aceptar"/>
         <ComboBox x:Name="NumCarta" HorizontalAlignment="Center" Height="32" Margin="460,0,0,380" Width="94" VerticalAlignment="Center" SelectionChanged="Cambio_Carta" BorderThickness="2"/>
         <ComboBox x:Name="NombreEdicion" HorizontalAlignment="Center" Height="32" Margin="320,0,0,304" Width="234" VerticalAlignment="Center" SelectionChanged="Cambio_Edicion"/>
         <ComboBox x:Name="Fase" HorizontalAlignment="Center" Height="32" Margin="178,0,0,230" Width="92" VerticalAlignment="Center" FontSize="10.667">
@@ -68,6 +68,7 @@
         <TextBox x:Name="Debilidad" HorizontalAlignment="Center" Height="17" Margin="153,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="67" PlaceholderText="Debilidad"/>
         <TextBox x:Name="Resistencia" HorizontalAlignment="Center" Height="32" Margin="297,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="67" PlaceholderText="Resistencia"/>
         <TextBox x:Name="Retirada" HorizontalAlignment="Center" Height="32" Margin="463,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="90" PlaceholderText="Resistencia"/>
+        <Button x:Name="button" Content="Sincronizar" HorizontalAlignment="Center" Height="31" Margin="439,394,0,0" VerticalAlignment="Center" Width="96" Click="Sincronizar"/>
     </Grid>
 
 </Page>

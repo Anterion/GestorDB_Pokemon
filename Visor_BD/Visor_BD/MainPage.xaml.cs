@@ -280,5 +280,10 @@ namespace Visor_BD
         {
 
         }
+
+        private void Sincronizar(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
