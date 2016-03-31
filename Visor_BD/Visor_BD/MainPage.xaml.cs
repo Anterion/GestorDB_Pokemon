@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Net;
 using SQLite.Net.Attributes;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -14,6 +15,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Media.Imaging;
+using System.Diagnostics;
+using HtmlAgilityPack;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -29,6 +32,7 @@ namespace Visor_BD
         string UrlImagen = "http://assets.pokemon.com/assets/cms2-es-es/img/cards/web/";
         string path;
         SQLite.Net.SQLiteConnection conn;
+        
         public MainPage()
         {
             this.InitializeComponent();
@@ -393,16 +397,18 @@ namespace Visor_BD
             }
         }
 
-        private void Sincronizar(object sender, RoutedEventArgs e)
+        private async void Sincronizar(object sender, RoutedEventArgs e)
         {
+            string direccion = "http://www.pokemon.com/es/jcc-pokemon/cartas-pokemon/xy-series/xy8/20/";
+            WebRequest request = HttpWebRequest.Create(direccion);
+            WebResponse web = await request.GetResponseAsync();
+            StreamReader documento = new StreamReader(web.GetResponseStream());
+            string doc = documento.ReadToEnd();
+            int iniciolinea = doc.IndexOf("<title>") + 7;
+            int finallinea = doc.Substring(iniciolinea).IndexOf("</title>");
+            string mostrar = doc.Substring(iniciolinea, finallinea);
+            Debug.WriteLine(mostrar);
 
-        }
-
-        private string Codificar_Colores(string CEnergia)
-        {
-            string CodEner = "[I]";
-
-            return CodEner;
         }
     }
 }
